@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ren.dao.TcpGateWayMessageMapper">
+
+    <insert id="insertGateWayMessage" parameterType="com.ren.bean.IndustrialMessage">
+        insert into nodemessage (user,gt,time,A,B,C,D) values (#{user,jdbcType=VARCHAR}, #{gt,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR},#{A,jdbcType=VARCHAR}, #{B,jdbcType=VARCHAR},#{C,jdbcType=VARCHAR},#{D,jdbcType=VARCHAR})
+    </insert>
+
+</mapper>

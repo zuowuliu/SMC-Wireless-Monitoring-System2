@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--配置实体类的别名，后面在写sql的配置文件的时候就可以直接写别名就可以了，而不用写实体的具体路径-->
+    <typeAliases>
+        <package name="com.ren.bean"/>
+    </typeAliases>
+    <plugins>
+        <!-- 使用分页插件必须在mybatis中配置插件plugin -->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+</configuration>
+ 

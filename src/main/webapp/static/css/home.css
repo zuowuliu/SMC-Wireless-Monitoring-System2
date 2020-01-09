@@ -1,0 +1,131 @@
+html,body{display: block; width: 100%; height: 100%; font-family: 'Dosis', sans-serif; overflow: hidden;}
+
+
+.cls-2 {
+    fill: #e6cfb7;
+}
+
+svg {
+    position: absolute;
+    right: 10px;
+    top: 13px; opacity: 0.0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+
+body {background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573055349014&di=ca708147cc186e68cd82605d431e8344&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F518978192d70d8c333d43e941a6633b44380306e.jpg'); background-size: cover; -webkit-perspective: 800px;
+    perspective: 800px; margin: 0;}
+
+.trim {background: transparent; position: absolute; height: 82%; width: 100%; top: 5%; border-top: 2px solid #c96800; border-bottom: 2px solid #c96800; left: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    opacity:0.0;
+}
+
+
+#menu {-webkit-transform: translateX(150px) translateY(150px) rotateY(20deg) rotateX(-2deg)rotateX(-15deg); ;
+    -ms-transform: translateX(150px) translateY(150px) rotateY(20deg) rotateX(-2deg) rotateX(-15deg);;
+    transform: translateX(150px) translateY(150px) rotateY(20deg) rotateZ(-2deg) rotateX(-15deg);;}
+
+#menu ul {list-style: none; padding: 0; margin: 0; position: relative; top:10px;}
+#menu li {overflow: hidden;
+    text-transform: uppercase; padding-bottom: 4px;
+    font-size: 56px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    line-height: 60px;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    padding-left:0px; padding-right: 0px;
+    display: inline-block; position: relative;
+}
+
+#menu li:hover {background: #e0931f; cursor: pointer;  padding-left:20px; padding-right: 50px; color: #482800;}
+#menu li:hover .trim {left: 0px; opacity: 1.0;}
+#menu li:hover svg {opacity: 1.0;}
+
+
+#menu {left: 200px; position: relative; width: 500px;}
+
+h2 {
+    position: absolute;
+    -ms-transform: rotate(90deg);
+    -ms-transform-origin: 0% 0%;
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: 0% 0%;
+    transform: rotate(90deg);
+    transform-origin: 0% 0%;
+    text-transform: uppercase;
+    color: #fff;
+    width: 355px;
+    box-sizing: border-box;
+    padding: 5px 20px;
+    font-size: 40px;
+    top: -20px;
+    left: -12px;
+    font-weight: normal;
+    border-left: 2px solid #5e5453;
+    border-right: 2px solid #5e5453;
+
+    background: rgba(0,0,0,0.8);
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(23,23,23,0.8) 50%, rgba(0,0,0,0.8) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0.8)), color-stop(50%, rgba(23,23,23,0.8)), color-stop(100%, rgba(0,0,0,0.8)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(23,23,23,0.8) 50%, rgba(0,0,0,0.8) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(23,23,23,0.8) 50%, rgba(0,0,0,0.8) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(23,23,23,0.8) 50%, rgba(0,0,0,0.8) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(23,23,23,0.8) 50%, rgba(0,0,0,0.8) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+
+}
+
+
+.buffer {
+    position: absolute;
+    -ms-transform: rotate(90deg);
+    -ms-transform-origin: 0% 0%;
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: 0% 0%;
+    transform: rotate(90deg);
+    transform-origin: 0% 0%;
+    text-transform: uppercase;
+    color: #fff;
+    display: block;
+    width: 355px;
+    height: 29px;
+    left: -77px;
+    top: 12px;
+    border-left: 2px solid #5e5453;
+    border-right: 2px solid #5e5453;
+    background: rgba(0,0,0,0.8);
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(23,23,23,0.8) 50%, rgba(0,0,0,0.8) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0.8)), color-stop(50%, rgba(23,23,23,0.8)), color-stop(100%, rgba(0,0,0,0.8)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(23,23,23,0.8) 50%, rgba(0,0,0,0.8) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(23,23,23,0.8) 50%, rgba(0,0,0,0.8) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(23,23,23,0.8) 50%, rgba(0,0,0,0.8) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(23,23,23,0.8) 50%, rgba(0,0,0,0.8) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+}
+
+
+
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    background: #000;
+    margin: 0px;
+    padding: 15px 0px;
+    z-index: 200;
+}

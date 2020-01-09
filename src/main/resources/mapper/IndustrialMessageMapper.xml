@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ren.dao.IndustrialMessageMapper">
+    <!--实体类和数据库的字段映射 -->
+    <resultMap type="com.ren.bean.IndustrialMessage" id="IndustrialMessageResultMap">
+        <result property="user" column="user"/>
+        <result property="gt" column="gt"/>
+        <result property="time" column="time"/>
+        <result property="A" column="A"/>
+        <result property="B" column="B"/>
+        <result property="C" column="C"/>
+        <result property="D" column="D"/>
+    </resultMap>
+
+    <select id="selectIndustrialMessage" resultMap="IndustrialMessageResultMap">
+        select * from nodemessage;
+    </select>
+<!--user,gt,time,A,B,C,D-->
+</mapper>
