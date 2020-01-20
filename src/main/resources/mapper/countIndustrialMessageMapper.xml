@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ren.dao.countIndustrialMessageMapper">
+    <!--实体类和数据库的字段映射 -->
+    <select id="countIndustrialMessage" resultType="java.lang.Integer">
+        select count(*) from nodemessage
+    </select>
+</mapper>

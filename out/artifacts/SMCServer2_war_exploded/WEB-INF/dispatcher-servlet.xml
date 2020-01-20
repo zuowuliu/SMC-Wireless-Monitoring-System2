@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        ">
+
+    <!--1、扫描控制器加载进bean-->
+    <context:component-scan base-package="com.ren">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:include-filter>
+    </context:component-scan>
+    <!--2、配置视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"></property>
+        <property name="suffix" value=".jsp"></property>
+        <!--SpringMVC视图解析器解析流程：
+
+            1、将SpringMVC控制器中的返回结果封装成一个ModelAndView对象。
+
+            2、通过SpringMVC中的视图解析器，使用ViewResolver对控制器返回的ModelAndView对象进行解析，将逻辑视图转换成物理视图。
+
+            3、调用View中的render()方法对物理视图进行渲染。-->
+    </bean>
+
+    <!--提供Controller请求转发，json自动转换等功能-->
+    <mvc:annotation-driven/>
+
+    <!--使用默认的Servlet来响应静态文件-->
+    <mvc:default-servlet-handler/>
+    <!--为了加载Service层的类利用springBeanFactoryUtils来获取指定类名的bean的serivce-->
+    <bean id="springBeanFactoryUtils" class="com.ren.bean.SpringBeanFactoryUtils"/>
+    <bean id="IndustrialService" class="com.ren.service.IndustrialService"></bean>
+    <!--配置Date，为了在登录系统时记录登录用户的时间-->
+    <bean id="Date" class="java.util.Date"></bean>
+    <!--配置TcpGateWayMessageService为了能调用里面的方法存储从网关发来的数据-->
+    <bean id="TcpGateWayMessageService" class="com.ren.service.TcpGateWayMessageService"></bean>
+</beans>
