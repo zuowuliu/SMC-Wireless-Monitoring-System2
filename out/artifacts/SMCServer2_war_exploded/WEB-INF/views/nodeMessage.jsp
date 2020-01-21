@@ -39,7 +39,6 @@
     <%--<div id="NodeMessageChart2" style="width: 500px;height:400px;float:left;position: fixed;top: 250px;left:230px;"></div>--%>
     <div id="NodeMessageChart2" style="width: 300px;height:300px;float:left;position: fixed;top: 200px;left:230px;"></div>
     <!--<div id="output"style="width:500px; height:400px;float:right;"></div>-->
-    <%--<div><textarea id="output" style=" text-align:center;width:670px; height:350px;position: fixed;top: 250px;left: 840px;"></textarea></div>--%>
     <div id="NodeMessageChart3" style="width: 300px;height:300px;float:left;position: fixed;top: 200px;left:230px;"></div>
     <div id="NodeMessageChart4" style="width: 300px;height:300px;float:left;position: fixed;top: 200px;left:230px;"></div>
 
@@ -53,7 +52,9 @@
     <div id="NodeMessageChart8" style="width: 300px;height:300px;float:left;position: fixed;top: 200px;left:230px;"></div>
 
 </div>
-
+<div >
+    <div><textarea id="output" style=" text-align:center;width:670px; height:350px;float:left;position: fixed;top: 850px;left: 500px;"></textarea></div>
+</div>
 <script type="text/javascript">
     var node_webSocket = null;
     var wsUri = "ws://localhost:8080/nodeWebSocket";
@@ -106,12 +107,12 @@
     };
     //连接成功建立的回调方法
     node_webSocket.onopen = function () {
-        // writeToScreen("WebSocket连接成功！");
-        // writeToScreen("Connecting to :" + wsUri);
-        // $("#output").append("WebSocket连接成功！")
-        // $("#output").append("\n");
-        // $("#output").append("Connecting to :" + wsUri+"......")
-        // $("#output").append("\n");
+        writeToScreen("WebSocket连接成功！");
+        writeToScreen("Connecting to :" + wsUri);
+        $("#output").append("WebSocket连接成功！")
+        $("#output").append("\n");
+        $("#output").append("Connecting to :" + wsUri+"......")
+        $("#output").append("\n");
         console.log("WebSocket连接成功！");
     }
     //接收到消息的回调方法
@@ -119,8 +120,8 @@
         if(event.data=="1"){
             location.reload();
         }else{
-            //event.data数据包装的格式在IndustrialMessage的toString方法中修改
-            // writeToScreen(event.data);
+            event.data数据包装的格式在IndustrialMessage的toString方法中修改
+            writeToScreen(event.data);
             tmpMsg = event.data.split(" ");//********此处需要修改
             //往表格中电压填充数据
             voltageResult1.push(parseFloat(tmpMsg[7].substring(1)));
@@ -171,15 +172,15 @@
     function closeWebSocket() {
         node_webSocket.close();
     }
-    // //用于显示在界面的函数
-    // function writeToScreen(message){
-    //     // var pre = document.createElement("p");
-    //     // pre.style.wordWrap = "break_word";
-    //     // pre.innerHTML = message;
-    //     //output.appendChild(pre);
-    //     output.append("\n");
-    //     output.append(message);
-    // }
+    //用于显示在界面的函数
+    function writeToScreen(message){
+        // var pre = document.createElement("p");
+        // pre.style.wordWrap = "break_word";
+        // pre.innerHTML = message;
+        //output.appendChild(pre);
+        output.append("\n");
+        output.append(message);
+    }
 
 
     <!--用于画图1-->
