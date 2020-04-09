@@ -57,12 +57,12 @@ public class NodeMessageWebsocket {
      */
     //如果在线程中已经判断出来是数据库已经发生了变化就会传入change的指令，同时向客户端发送“1”的指令告知
     //如果没有发生改变的话就直接正常的把数据中数据信息发送给客户端
-    public void sendMessage(String message) throws IOException {
+    public synchronized void sendMessage(String message) throws IOException {
         if (message == "change") {
             for (NodeMessageWebsocket item : nodeMessageWebsocketsSet) {
                 item.session.getBasicRemote().sendText("1");
             }
-        } else {
+        }else {
             for (NodeMessageWebsocket item : nodeMessageWebsocketsSet) {
                 item.session.getBasicRemote().sendText(message);
             }

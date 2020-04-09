@@ -19,16 +19,20 @@ import javax.servlet.ServletContext;
 
 //@Controller
 @Component
-public class TcpGateWayServer implements InitializingBean, ServletContextAware {
-//    @RequestMapping("/tcpGateWay1ServerOpen")
-
+public class TcpGateWayServer implements InitializingBean,ServletContextAware{
+//    @RequestMapping("/tcpGateWay1ServerOpen"),ServletContextAware
+/**
+ * 实现了InitializingBean和ServletContextAware这两个接口之后可以实现随容器启动而初始化这个类
+ * 为IOC容器中的bean的时候应该怎样初始化，初始化逻辑在setServletContext()中
+ * */
 
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("已Ready..");
+
     }
 
-    @Override
+//    @Override
     public void setServletContext(ServletContext servletContext) {
         //设置Server的端口号
         int port = 9090;
@@ -41,9 +45,9 @@ public class TcpGateWayServer implements InitializingBean, ServletContextAware {
                 .channel(NioServerSocketChannel.class)
                 .option(ChannelOption.SO_BACKLOG, 15)//设置可以在线的客户端数量为15个
                 .childOption(ChannelOption.SO_KEEPALIVE, true)
-                .childHandler(new ChannelInitializer<ServerSocketChannel>() {
+                .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override
-                    protected void initChannel(ServerSocketChannel serverSocketChannel) throws Exception {
+                    protected void initChannel(SocketChannel serverSocketChannel) throws Exception {
                         //socketChannel.pipeline().addLast(new ChatServerHandler());
                         ChannelPipeline channelPipeline = serverSocketChannel.pipeline();
                         //往pipeline中添加一个解码器
@@ -55,10 +59,11 @@ public class TcpGateWayServer implements InitializingBean, ServletContextAware {
                     }
                 });
         System.out.println("TcpGateWayServer is Ready...");
+        serverConfig.bind(port);//sync方法是同步阻塞的
+
 //        try {
-//            serverConfig.bind(port).sync();//sync方法是同步阻塞的
-////            ChannelFuture channelFuture = serverConfig.bind(port).sync();//sync方法是同步阻塞的
-////            channelFuture.channel().closeFuture().sync();
+//            ChannelFuture channelFuture = serverConfig.bind(port).sync();//sync方法是同步阻塞的
+//            channelFuture.channel().closeFuture().sync();
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }

@@ -57,6 +57,7 @@ public class MessageUpdateListener implements Runnable{
                     e.printStackTrace();
                 }
             }
+            System.out.println("监听线程已关闭");
 
 
     }

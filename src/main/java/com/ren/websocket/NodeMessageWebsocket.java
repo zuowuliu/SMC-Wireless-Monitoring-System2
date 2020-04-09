@@ -35,6 +35,11 @@ public class NodeMessageWebsocket {
     //当关闭网页的时候关闭线程，同时在集合中移除此连接的客户端s
     @OnClose
     public void onClose() {
+        /**
+         * 1.第一种情况是退出监控空页面的时候会断开我的websocket链接，所以此时会设置一次标志位从而退出我的监听线程
+         * 2.还有就是更新数据的时候，会冲刷一次页面即断开websocket然后再重连一次，所以会有一次断开监听线程的过程
+         * 所以每次更新完数据之后控制台会有一条监听线程已关闭的信息
+         * */
         thread1.stopMe();
         nodeMessageWebsocketsSet.remove(this);
     }
@@ -57,12 +62,12 @@ public class NodeMessageWebsocket {
      */
     //如果在线程中已经判断出来是数据库已经发生了变化就会传入change的指令，同时向客户端发送“1”的指令告知
     //如果没有发生改变的话就直接正常的把数据中数据信息发送给客户端
-    public void sendMessage(String message) throws IOException {
+    public synchronized void sendMessage(String message) throws IOException {
         if (message == "change") {
             for (NodeMessageWebsocket item : nodeMessageWebsocketsSet) {
                 item.session.getBasicRemote().sendText("1");
             }
-        } else {
+        }else {
             for (NodeMessageWebsocket item : nodeMessageWebsocketsSet) {
                 item.session.getBasicRemote().sendText(message);
             }
