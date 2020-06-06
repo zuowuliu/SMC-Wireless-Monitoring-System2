@@ -19,7 +19,7 @@
     </resultMap>
 
     <select id="selectIndustrialMessage" resultMap="IndustrialMessageResultMap">
-        select * from nodemessage;
+        select * from nodemessage2;
     </select>
 <!--user,gt,time,A,B,C,D,E,F,G,H-->
 </mapper>

@@ -5,7 +5,7 @@
 <mapper namespace="com.ren.dao.TcpGateWayMessageMapper">
 
     <insert id="insertGateWayMessage" parameterType="com.ren.bean.IndustrialMessage">
-        insert into nodemessage (user,gt,time,A,B,C,D,E,F,G,H) values (#{user,jdbcType=VARCHAR}, #{gt,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR},#{A,jdbcType=VARCHAR}, #{B,jdbcType=VARCHAR},#{C,jdbcType=VARCHAR},#{D,jdbcType=VARCHAR},#{E,jdbcType=VARCHAR}, #{F,jdbcType=VARCHAR},#{G,jdbcType=VARCHAR},#{H,jdbcType=VARCHAR})
+        insert into nodemessage2 (user,gt,time,A,B,C,D,E,F,G,H) values (#{user,jdbcType=VARCHAR}, #{gt,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR},#{A,jdbcType=VARCHAR}, #{B,jdbcType=VARCHAR},#{C,jdbcType=VARCHAR},#{D,jdbcType=VARCHAR},#{E,jdbcType=VARCHAR}, #{F,jdbcType=VARCHAR},#{G,jdbcType=VARCHAR},#{H,jdbcType=VARCHAR})
     </insert>
 
 </mapper>

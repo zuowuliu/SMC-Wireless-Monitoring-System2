@@ -87,8 +87,8 @@
         timeResult4.push(0);
         voltageResult5.push(0);
         timeResult5.push(0);
-        voltageResult6.push(0);
-        timeResult6.push(0);
+        // voltageResult6.push(0);
+        // timeResult6.push(0);
         voltageResult7.push(0);
         timeResult7.push(0);
         voltageResult8.push(0);

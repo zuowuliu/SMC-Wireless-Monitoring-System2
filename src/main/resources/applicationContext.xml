@@ -25,7 +25,7 @@
         <property name="password" value="${jdbc.password}"></property>
     </bean>
 
-    <!--配置sqlSessionFactory整合Mybatis-->
+    <!--配置sqlSessionFactory整合Mybatis,也就是Mybatis调用数据库的方式-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!-- 加载mybatis的全局配置文件 -->
         <property name="configLocation" value="classpath:mybatisConfig.xml"></property>
@@ -39,4 +39,6 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.ren.dao"></property>
     </bean>
+
+
 </beans>
